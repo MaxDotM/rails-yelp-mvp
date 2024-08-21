@@ -1,0 +1,12 @@
+<div class="container list-group-flush">
+  <% @restaurants.each do |restaurant| %>
+  <h1 class="list-group-item"><%= restaurant.name %></h1>
+  <h5 class="list-group-item"><%= restaurant.category %></h5>
+  <%= link_to "See details", restaurant_path(restaurant), class: "btn btn-primary"%>
+  <%= link_to restaurant_path(restaurant),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-sharp fa-solid fa-trash ms-2"></i>
+      <% end %>
+  <% end %>
+  <br><%= link_to "Create Restaurant", new_restaurant_path, class: "btn btn-success mt-3"%>
+</div>
